@@ -1,0 +1,24 @@
+# Copy this to your project root as `.jira` (or to ~/.config/jira/.jira)
+# and fill in real values, then: chmod 600 .jira && echo .jira >> .gitignore
+#
+#   cp ~/.claude/skills/jira/.jira.example /path/to/project/.jira
+#   chmod 600 /path/to/project/.jira
+#   echo .jira >> /path/to/project/.gitignore
+
+# Required: your Jira Cloud site (no protocol, no trailing slash)
+JIRA_SITE=your-site.atlassian.net
+
+# Required for scoped API tokens: your Atlassian account email (paired with the
+# token via HTTP Basic auth: base64(email:token)).
+# Omit JIRA_USER if you're using an OAuth 2.0 / Forge access token (Bearer auth).
+JIRA_USER=you@example.com
+
+# Required: API token from
+#   https://id.atlassian.com/manage-profile/security/api-tokens?autofillToken=&appId=jira&selectedScopes=all&expiryDays=30
+# Tick at minimum: read:jira-work, read:jira-user
+JIRA_TOKEN=replace-with-your-token
+
+# Required: cloudId for the Atlassian API gateway. Find via:
+#   node ~/.claude/skills/jira/bin/jira.mjs --site your-site.atlassian.net --cloudid
+# If omitted, the CLI auto-resolves it on first authenticated call and asks you to persist it.
+JIRA_CLOUDID=00000000-0000-0000-0000-000000000000
